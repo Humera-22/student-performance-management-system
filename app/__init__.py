@@ -10,14 +10,14 @@ def create_app():
 
     db.init_app(app)
 
-    # Import models so SQLAlchemy knows them
     from app import models
 
-    # Import and register API blueprint
     from app.routes import api
     app.register_blueprint(api, url_prefix="/api")
 
-    # Health check route
+    from app.auth import auth_bp
+    app.register_blueprint(auth_bp, url_prefix="/auth")
+
     @app.route("/")
     def home():
         return jsonify({
@@ -26,6 +26,5 @@ def create_app():
         })
 
     return app
-
 
 
