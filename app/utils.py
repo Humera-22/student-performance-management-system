@@ -1,36 +1,3 @@
-"""
-import redis
-import json
-from datetime import datetime
-from app.config import Config
-
-class Utils:
-    redis_client = redis.Redis(
-        host=Config.REDIS_HOST,
-        port=Config.REDIS_PORT,
-        db=Config.REDIS_DB,
-        decode_responses=True
-    )
-
-    @staticmethod
-    def format_datetime(dt: datetime):
-        return dt.strftime("%Y-%m-%d %H:%M:%S")
-
-    @classmethod
-    def get_cache(cls, key):
-        try:
-            value = cls.redis_client.get(key)
-            return json.loads(value) if value else None
-        except Exception:
-            return None
-
-    @classmethod
-    def set_cache(cls, key, value, expiry=60):
-        try:
-            cls.redis_client.setex(key, expiry, json.dumps(value))
-        except Exception:
-            pass
-"""
 # app/utils.py
 import redis
 import json

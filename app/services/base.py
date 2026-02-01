@@ -1,25 +1,3 @@
-"""
-from abc import ABC, abstractmethod
-from app import db
-
-class BaseService(ABC):
-    Abstract base service providing common CRUD methods
-
-    @classmethod
-    @abstractmethod
-    def create(cls, data):
-        pass
-
-    @classmethod
-    @abstractmethod
-    def update(cls, instance, data):
-        pass
-
-    @classmethod
-    def delete(cls, instance):
-        db.session.delete(instance)
-        db.session.commit()
-"""
 # app/services/base.py
 from abc import ABC, abstractmethod
 from app import db

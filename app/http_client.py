@@ -1,20 +1,3 @@
-"""
-import requests
-from app.exceptions import AppException
-
-class HttpClient:
-
-    @staticmethod
-    def get(url, timeout=5):
-        try:
-            response = requests.get(url, timeout=timeout)
-            response.raise_for_status()
-            return response.json()
-        except requests.exceptions.Timeout:
-            raise AppException("External API timeout", 504)
-        except requests.exceptions.RequestException:
-            raise AppException("External API failed", 502)
-"""
 # app/http_client.py
 import requests
 from app.exceptions import AppException

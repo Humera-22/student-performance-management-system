@@ -1,23 +1,3 @@
-"""
-from app.models import Course
-from app import db
-from .base import BaseService
-
-class CourseService(BaseService):
-
-    @classmethod
-    def create(cls, data):
-        course = Course(**data)
-        db.session.add(course)
-        db.session.commit()
-        return course
-
-    @classmethod
-    def update(cls, course, data):
-        course.title = data.get("title", course.title)
-        db.session.commit()
-        return course
-"""
 # app/services/course.py
 from app.models import Course
 from app import db
