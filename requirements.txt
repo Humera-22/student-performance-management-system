@@ -6,3 +6,4 @@ PyJWT
 redis
 requests
 dataclasses
+streamlit
